@@ -8,12 +8,9 @@ import createShareButton from './utils/createShareButton';
 function facebookMessengerLink(url, { redirectUri, appId }) {
   assert(url, 'facebookmessenger.url');
   if (isMobile) {
-    return 'fb-messenger://share/?link=' + objectToGetParams({
-      link: url,
-      app_id: appId,
-    });
+    return `fb-messenger://share/?link=${url}&app_id=${appId}`;
   }
-  return 'http://www.facebook.com/dialog/send' + objectToGetParams({
+  return ' http://www.facebook.com/dialog/send' + objectToGetParams({
     app_id: appId,
     link: url,
     redirect_uri: redirectUri,
